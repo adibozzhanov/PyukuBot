@@ -1,74 +1,76 @@
-import logging
 import random
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from bottoken import TOKEN
+from telegram import Bot
 
-# Enable logging
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.INFO)
-
-logger = logging.getLogger(__name__)
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 
-# Define a few command handlers. These usually take the two arguments update and
-# context. Error handlers also receive the raised TelegramError object in error.
-def start(update, context):
-    """Send a message when the command /start is issued."""
-    update.message.reply_text('Hi!')
+class Pyukumuku(Bot):
+    def __init__(self):
+        super().__init__(TOKEN)
+        self.coin = ["HEADS", "TAILS"]
+        self.yesno = ["YES", "NO"]
+
+        
+        updater = Updater(TOKEN, use_context = True)
+
+        dp = updater.dispatcher
+
+        dp.add_handler(CommandHandler("flip", self.flip))
+        dp.add_handler(CommandHandler("yn", self.yn))
+        dp.add_handler(CommandHandler("roll", self.roll))
+        dp.add_handler(CommandHandler("help", self.help))
+        dp.add_error_handler(self.error)
+
+        updater.start_polling()
+        print("Pyukumuku is running")
+        updater.idle()
 
 
-def help(update, context):
-    """Send a message when the command /help is issued."""
-    update.message.reply_text('Help!')
+    def help(self, update, context):
+        chat_id = update.message.chat.id
+        msg_id = update.message.message_id
+
+        self.sendMessage(chat_id = chat_id, text = f"Commands:\n/flip - flips a coin\n/yn - yes/no answer\n/roll <n1> <n2> - a random number between n1 and n2")
 
 
-def flip(update,context):
+    def flip(self,update, context):
+        chat_id = update.message.chat.id
+        msg_id = update.message.message_id
 
-    coin = ["HEADS", "TAILS"]
-    c = random.choice(coin)
+        c = random.choice(self.coin)
+        self.sendMessage(chat_id = chat_id, text = f"The coin landed on {c}")
 
-    update.message.reply_text(f"The coin flipped: {c}")
+    def yn(self, update, context):
+        chat_id = update.message.chat.id
+        msg_id = update.message.message_id
 
+        c = random.choice(self.yesno)
+        self.sendMessage(chat_id = chat_id, text = f"I am confident that the answer is {c}")
 
-def echo(update, context):
-    """Echo the user message."""
-    update.message.reply_text(update.message.text)
+    def roll(self, update, context):
+        chat_id = update.message.chat.id
+        msg_id = update.message.message_id
+        name = update.message.from_user.first_name
 
+        try:
+            val1, val2 = context.args[0], context.args[1]
+            ret = random.randint(int(val1), int(val2))
+            self.sendMessage(chat_id = chat_id, text = f"Here is a numebr for you: {ret}")
+        except:
+            self.sendMessage(chat_id = chat_id, text = f"I'm sorry {name}, but it seems like your brain is too small to use roll.\n\nHint: roll n1 n2. (n1 < n2)")
+            
+        
+        
 
-def error(update, context):
-    """Log Errors caused by Updates."""
-    logger.warning('Update "%s" caused error "%s"', update, context.error)
-
-
-def main():
-    """Start the bot."""
-    # Create the Updater and pass it your bot's token.
-    # Make sure to set use_context=True to use the new context based callbacks
-    # Post version 12 this will no longer be necessary
-    updater = Updater(TOKEN, use_context=True)
-
-    # Get the dispatcher to register handlers
-    dp = updater.dispatcher
-
-    # on different commands - answer in Telegram
-    dp.add_handler(CommandHandler("start", start))
-    dp.add_handler(CommandHandler("help", help))
-    dp.add_handler(CommandHandler("flip", flip))
-
-    # on noncommand i.e message - echo the message on Telegram
-    dp.add_handler(MessageHandler(Filters.text, echo))
-
-    # log all errors
-    dp.add_error_handler(error)
-
-    # Start the Bot
-    updater.start_polling()
-
-    # Run the bot until you press Ctrl-C or the process receives SIGINT,
-    # SIGTERM or SIGABRT. This should be used most of the time, since
-    # start_polling() is non-blocking and will stop the bot gracefully.
-    updater.idle()
+    def error(self,update, context):
+        print(f"Update {update} caused an error {context.error}")
+        
+        
+        
 
 
-if __name__ == '__main__':
-    main()
+
+if __name__ == "__main__":
+    Pyukumuku()
+
