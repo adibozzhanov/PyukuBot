@@ -1,4 +1,5 @@
 import logging
+import random
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from bottoken import TOKEN
 
@@ -19,6 +20,14 @@ def start(update, context):
 def help(update, context):
     """Send a message when the command /help is issued."""
     update.message.reply_text('Help!')
+
+
+def flip(update,context):
+
+    coin = ["HEADS", "TAILS"]
+    c = random.choice(coin)
+
+    update.message.reply_text(f"The coin flipped: {c}")
 
 
 def echo(update, context):
@@ -44,6 +53,7 @@ def main():
     # on different commands - answer in Telegram
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
+    dp.add_handler(CommandHandler("help", flip))
 
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, echo))
