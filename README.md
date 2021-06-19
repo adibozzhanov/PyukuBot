@@ -25,6 +25,8 @@ A script will iterate over the contents of the file and initialise all commands 
 	 # This will be shown in the help section of the bot when user types /help
 	 description = "This is a good description of my command"
 	 
+	 # the function name will be converted into a command
+	 # user would have to type /mycommand to trigger this function.
 	 def mycommand(bot, update, context):
 		 chat_id = update.message.chat.id
 		 
