@@ -1,10 +1,13 @@
+# driver code
+from pyuku import Pyuku
 
 
-# read token
+if __name__ == "__main__":
+    try:
+        with open(".token", "r") as tokenFile:
+            token = tokenFile.readline().strip()
+            Pyuku(token)
 
-
-with open(".token", "r") as token_file:
-    token = token_file.readline()
-
-
+    except IOError:
+        print("No token file detected.")
 

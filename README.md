@@ -27,7 +27,7 @@ A script will iterate over the contents of the file and initialise all commands 
 	 
 	 # the function name will be converted into a command
 	 # user would have to type /mycommand to trigger this function.
-	 def mycommand(bot, update, context):
+	 def mycommand(update, context):
 		 chat_id = update.message.chat.id
 		 
 		 response = "" 
