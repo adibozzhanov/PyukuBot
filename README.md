@@ -22,6 +22,7 @@ A script will iterate over the contents of the file and initialise all commands 
 	 - Sample command file template `mycommand.py`
 	 ```python
 	 
+	 # This will be shown in the help section of the bot when user types /help
 	 description = "This is a good description of my command"
 	 
 	 def mycommand(bot, update, context):
