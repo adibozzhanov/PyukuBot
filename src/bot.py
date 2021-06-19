@@ -1,5 +1,4 @@
 import random
-from bottoken import TOKEN
 from telegram import Bot
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
