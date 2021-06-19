@@ -22,6 +22,8 @@ A script will iterate over the contents of the file and initialise all commands 
 	 - Sample command file template `mycommand.py`
 	 ```python
 	 
+	 description = "This is a good description of my command"
+	 
 	 def mycommand(bot, update, context):
 		 chat_id = update.message.chat.id
 		 
