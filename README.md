@@ -1,45 +1,23 @@
 # PyukuBot
-A telegram bot that can do stuff
+A telegram bot that can do stuff...
+
+It can do all sorts of random things. 
+
+Add it to your telegram group chat and some of the features will definitely brighten up your group chat.
+
+# Contributing
+You can contribute to the pyuku bot in multiple ways. Generally, any sort of feature supported by a new command is very much pleased. 
 
 
-# Commands Format
+## Adding a new command
 
-This section describes the format of creating a new command.
-A script will iterate over the contents of the file and initialise all commands for the bot to support it.
+If you want to add a new command for the bot to support, add a new `nameofyourcommand.py` file in `/src/commands` directory.
 
- - All commands are stored in the `src/commands` directory.
+The format of the command file.
 
- - Each command has it's own `.py` file.
+ - The file MUST contain a `main` function that takes in parameters depending on the chosen decorator
  
- - The name of the file MUST be of the format `commandname.py`
+ - The `main` function MUST use one of the predefined decorators. See next section on what decorators are available.
  
- - A command MUST NOT contain any characters but lowercase alphabet.
- 
- - A command SHOULD NOT be long
- 
- - A command file MUST contain a function with the same name as the filename
- 
-	 - Sample command file template `mycommand.py`
-	 ```python
-	 
-	 # This will be shown in the help section of the bot when user types /help
-	 description = "This is a good description of my command"
-	 
-	 # the function name will be converted into a command
-	 # user would have to type /mycommand to trigger this function.
-	 def mycommand(update, context):
-		 chat_id = update.message.chat.id
-		 
-		 response = "" 
-		 
-		 # code goes here...
-		 # do some magic to the response text
-		 
-		 bot.sendMessage(chat_id = chat_id, text = response)
-	 
-	 
-	 ```
-
- - A command file MUST contain a variable `description` declared, where the description of the command is stored.
- 
+ - The file MUST contain a `description` variable declared at the outer most scope, that has a short description of the command. 
  
