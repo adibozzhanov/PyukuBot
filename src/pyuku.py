@@ -29,9 +29,7 @@ class Pyuku(Bot):
 
     # Help is a special command handler that contains info about each command
     # Thus we create it automatically after all handlers are initialised
-    def initHelp(self):
-        for command in commands:
-            
+    
 
                 
 
