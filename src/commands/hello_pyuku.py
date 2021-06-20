@@ -1,4 +1,6 @@
 from random import choice
+from decorators import named_static_command
+
 description = "says hello to the user"
 @named_static_command
 def main(name):
