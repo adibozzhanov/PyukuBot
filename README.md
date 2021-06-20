@@ -22,11 +22,11 @@ If you want to add a new command for the bot to support, add a new `nameofyourco
 The format of the command file.
 
  - The file MUST contain a `main` function that takes in parameters depending on the chosen decorator, and returns a `string`
- 
+
  - The `main` function MUST use one of the predefined decorators. See next section on what decorators are available.
- 
+
  - The file MUST contain a `description` variable declared at the outer most scope, that has a short description of the command. 
- 
+
 An example of the command file:
 
 ```python
@@ -40,7 +40,7 @@ def main():
     return "Hi! I'm Pyuku!"
 
 ```
- 
+
  - `description` is needed for the command to be added into the `/help` command.
  - `main` is where you code goes. You are free to create other methods and classes in the file if so needed.
 
@@ -68,7 +68,7 @@ List of available decorators:
  
  
  ```
- 
+
  - `@named_static_command` - use this decorator if you want to include sender's name in the message. `main` function will then need to take the name as a parameter.
  ```python
  from decorators import named_static_command
@@ -83,3 +83,6 @@ List of available decorators:
 	 return text
  
  ```
+
+# Hello I am Pom :D!
+
