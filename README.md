@@ -69,7 +69,7 @@ List of available decorators:
  
  ```
  
- - `@named_static_command` - use this decorator if you want to include senders name in the message.
+ - `@named_static_command` - use this decorator if you want to include sender's name in the message. `main` function will then need to take the name as a parameter.
  ```python
  from decorators import named_static_command
  
