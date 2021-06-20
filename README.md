@@ -78,7 +78,6 @@ List of available decorators:
  @named_static_command
  def main(name):
 	 text = f"{name}" # user's name will be passed as a parameter
-	 
 	 # code goes here
 	 
 	 return text
