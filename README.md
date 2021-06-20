@@ -41,5 +41,5 @@ def main():
 
 ```
  
-`description` is needed for the command to be added into the `/help` command.
-`main` is where you code goes. You are free to create other methods and classes in the file if so needed.
+ - `description` is needed for the command to be added into the `/help` command.
+ - `main` is where you code goes. You are free to create other methods and classes in the file if so needed.
