@@ -84,5 +84,4 @@ List of available decorators:
  
  ```
 
-# Hello I am Pom :D!
 
