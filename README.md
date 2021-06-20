@@ -69,4 +69,18 @@ List of available decorators:
  
  ```
  
- - `@named_static_command` - use this decorator if you want to include senders name in the message. In that case 
+ - `@named_static_command` - use this decorator if you want to include senders name in the message.
+ ```python
+ from decorators import named_static_command
+ 
+ description = "your description goes here"
+ 
+ @named_static_command
+ def main(name):
+	 text = f"{name}" # user's name will be passed as a parameter
+	 
+	 # code goes here
+	 
+	 return text
+ 
+ ```
