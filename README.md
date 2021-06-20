@@ -3,7 +3,7 @@ A telegram bot that can do stuff...
 
 It can do all sorts of random things. 
 
-Add it to your telegram group chat and some of the features will definitely brighten up your group chat.
+Add it to your telegram group chat and some of the features will definitely brighten up your chatting experience.
 
 # Contributing
 You can contribute to the pyuku bot in multiple ways. Generally, any sort of feature supported by a new command is very much pleased. 
