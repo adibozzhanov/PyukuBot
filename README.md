@@ -37,7 +37,7 @@ description = "replies with a hello message."
 
 @static_command
 def main():
-	return "Hi! I'm Pyuku!"
+    return "Hi! I'm Pyuku!"
 
 ```
  
