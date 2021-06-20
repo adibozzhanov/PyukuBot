@@ -43,3 +43,30 @@ def main():
  
  - `description` is needed for the command to be added into the `/help` command.
  - `main` is where you code goes. You are free to create other methods and classes in the file if so needed.
+
+
+# Decorators
+
+As mentioned in the previous section, pyuku bot is using decorators to hide all the bot logic used.
+
+If you are not familiar with decorators it's not a problem, each decorator will be explained in this section so you can just straight up use it.
+
+List of available decorators:
+
+ - `@static_command` - use this decorator if your function doesn't require any input. Best suite for any simple random generator.
+ ```python
+ from decorators import static_command
+ 
+ description = "your description goes here"
+ 
+ @static_command
+ def main():
+	 text = ""
+	 # code goes here
+	 
+	 return text
+ 
+ 
+ ```
+ 
+ - `@named_static_command` - use this decorator if you want to include senders name in the message. In that case 
