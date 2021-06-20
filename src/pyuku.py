@@ -1,9 +1,7 @@
-from os import walk
+from commands import commands
+import decorators
 
 from telegram import Bot
-
-from commands import *
-
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 class Pyuku(Bot):
@@ -13,24 +11,30 @@ class Pyuku(Bot):
 
         updater = Updater(token, use_context = True)
 
-        dp = updater.dispatcher
+        self.dp = updater.dispatcher
+
+        decorators.bot = self
 
         # add handlers
         self.initHandlers()
-
 
         updater.start_polling()
         print("Pyuku is running!")
         updater.idle()
 
+    # initialise all command handlers
     def initHandlers(self):
-        f = []
-        
-        for (dirpath, dirnames, filenames) in walk("commands"):
-            f.extend(filenames)
+        for command in commands:
+            self.dp.add_handler(CommandHandler(command, commands[command][0]))
 
-        for command in f:
-            exec("import command.{}")
-        
+    # Help is a special command handler that contains info about each command
+    # Thus we create it automatically after all handlers are initialised
+    def initHelp(self):
+        for command in commands:
+            
+
+                
+
+                
         
         
