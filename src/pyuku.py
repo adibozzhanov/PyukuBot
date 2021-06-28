@@ -4,7 +4,7 @@ import decorators
 from telegram import Bot
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
-
+# This is the main bot class
 class Pyuku(Bot):
     def __init__(self, token):
         super().__init__(token)
