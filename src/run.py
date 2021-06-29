@@ -2,7 +2,6 @@
 import os
 from pyuku import Pyuku
 
-
 if __name__ == "__main__":
     env = os.environ
     if "BOT_TOKEN" in env:
