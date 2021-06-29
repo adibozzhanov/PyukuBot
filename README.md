@@ -18,7 +18,7 @@ pipenv install
 ```
 
 ## Environment
-Create `.env` file and set contents as following:
+`/PyukuBot/.env` file:
 ```
 BOT_TOKEN= //your token goes here 
 ```
