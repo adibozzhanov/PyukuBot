@@ -28,7 +28,6 @@ BOT_TOKEN= //your token goes here
 From the `PyukuBot/src` directory
 ```
 pipenv run python3 run.py
-
 ```
 
 # Contributing
