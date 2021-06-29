@@ -8,12 +8,14 @@ Add it to your telegram group chat and some of the features will definitely brig
 # Getting Started
 
 From the main directory start the pipenv shell.
-
-`pipenv shell`
+```
+pipenv shell
+```
 
 Once in the shell, install dependencies.
-
-`pipenv install`
+```
+pipenv install
+```
 
 Create `.env` file and set contents as following:
 ```
