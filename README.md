@@ -23,7 +23,7 @@ Create `.env` file and set contents as following:
 BOT_TOKEN= //your token goes here 
 ```
 
-# Run
+## Run
 
 From the `PyukuBot/src` directory
 ```
