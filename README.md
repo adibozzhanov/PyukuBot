@@ -5,6 +5,21 @@ It can do all sorts of random things.
 
 Add it to your telegram group chat and some of the features will definitely brighten up your chatting experience.
 
+# Getting Started
+
+From the main directory start the pipenv shell.
+
+`pipenv shell`
+
+Once in the shell, install dependencies.
+
+`pipenv install`
+
+Create `.env` file and set contents as following:
+```
+BOT_TOKEN= // you token goes here 
+```
+
 # Contributing
 You can contribute to the pyuku bot in multiple ways. Generally, any sort of feature supported by a new command is very much pleased. 
 
