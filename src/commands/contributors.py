@@ -1,10 +1,10 @@
 import requests
-from decorators import static_command
+from decorators import message
 
 description = "shows the contributors of the bot"
 
 
-@static_command
+@message
 def main():
     try:
         resp = requests.get(
@@ -18,10 +18,6 @@ def main():
         contributors = [user["login"] for user in data]
         if len(contributors) == 1:
             return "The contributor to PyukuBot is" + contributors[0] + "."
-        return (
-            "The contributors to PyukuBot are "
-            + ", ".join(contributors[:-1])
-            + " and "
-            + contributors[-1]
-            + "."
-        )
+        return ("The contributors to PyukuBot are " +
+                ", ".join(contributors[:-1]) + " and " + contributors[-1] +
+                ".")

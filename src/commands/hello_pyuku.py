@@ -1,10 +1,10 @@
 from random import choice
-from decorators import named_static_command
+from decorators import named_message
 
 description = "says hello to the user"
 
 
-@named_static_command
+@named_message
 def main(name):
     greetings = [
         "pleased to meet you",

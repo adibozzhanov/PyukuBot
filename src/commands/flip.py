@@ -1,10 +1,10 @@
 import random
-from decorators import static_command
+from decorators import message
 
 description = "flips a coin"
 
 
-@static_command
+@message
 def main():
     choices = ["HEADS", "TAILS"]
     return f"The coin landed on: {random.choice(choices)}"

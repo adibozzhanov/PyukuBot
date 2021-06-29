@@ -2,7 +2,8 @@ from commands import commands
 import decorators
 
 from telegram import Bot
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.ext import Updater, CommandHandler, Filters
+
 
 # This is the main bot class
 class Pyuku(Bot):

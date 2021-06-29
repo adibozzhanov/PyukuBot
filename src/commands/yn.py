@@ -1,10 +1,10 @@
 import random
-from decorators import static_command
+from decorators import reply
 
 description = "answers yes or no"
 
 
-@static_command
+@reply
 def main():
     answers = ["YES", "NO"]
     return random.choice(answers)
