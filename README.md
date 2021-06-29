@@ -19,7 +19,7 @@ pipenv install
 
 Create `.env` file and set contents as following:
 ```
-BOT_TOKEN= // you token goes here 
+BOT_TOKEN= //your token goes here 
 ```
 
 # Contributing
